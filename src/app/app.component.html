@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>Payment App</h1>
   <div class="row">
     <div class="col form-group">
       <label>Payee Name</label>
@@ -21,11 +22,11 @@
   </div>
   <div class="row">
     <div class="col form-group">
-      <label>Value</label>
+      <label>Amount</label>
       <input class="form-control" type="number" (input)="onValueChange($event)">
     </div>
     <div class="col">
-      <label for=""><b>Value</b></label>
+      <label for=""><b>Amount</b></label>
       <p>{{ value  | number: '1.0-2' | currency: '€' }} </p>
     </div>
   </div>
@@ -35,8 +36,8 @@
       <input class="form-control" type="number" (input)="onMilesChange($event)">
     </div>
     <div class="col">
-      <label for=""><b>Kilometers</b></label>
-      <p>{{ miles  | number: '1.0-2' | currency: '€' }} </p>
+      <label for=""><b>Converted to cm</b></label>
+      <p *ngIf="((miles | convert: 'cm' ) > 10)">{{ miles | convert: 'cm'  | number: '1.0-2' }} </p>
     </div>
   </div>
 </div>
